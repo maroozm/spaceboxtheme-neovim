@@ -1,11 +1,11 @@
-local colorscheme = require 'my-theme.colorscheme'
-local config = require 'my-theme.config'
+local colorscheme = require 'spacebox.colorscheme'
+local config = require 'spacebox.config'
 local theme = {}
 
 local bg = config.transparent and 'NONE' or colorscheme.editorBackground
 
 theme.normal = {
-  a = { bg = colorscheme.blue, fg = colorscheme.editorBackground, gui = 'bold' },
+  a = { bg = colorscheme.syntaxKeyword, fg = colorscheme.editorBackground, gui = 'bold' },
   b = { bg = bg, fg = colorscheme.commentText },
   c = { bg = bg, fg = colorscheme.editorBackground },
 }

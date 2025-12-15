@@ -1,6 +1,6 @@
 <div align="center">
 
-# My Theme
+# SpaceBox Theme
 
 <br/>
 <br/>
@@ -17,21 +17,21 @@
 1. Using `Lazy`:
 
 ```lua
-{ 'my-user/my-theme.nvim' },
+{ 'my-user/spacebox.nvim' },
 ```
 
 2. Using `Packer`:
 
 ```lua
-use 'my-user/my-theme.nvim'
+use 'my-user/spacebox.nvim'
 ```
 
 ## Configuration
 
-To configure the plugin, you can call require('my-theme').setup({}), passing the table with the values in it. The following are the **defaults**:
+To configure the plugin, you can call require('spacebox').setup({}), passing the table with the values in it. The following are the **defaults**:
 
 ```lua
-require('my-theme').setup({
+require('spacebox').setup({
     -- NOTE: if your configuration sets vim.o.background in your configuration for Neovim,
     -- the following setting will do nothing, since it'll be overriden.
     theme = 'dark', -- String: 'dark' or 'light', determines the colorscheme used
@@ -49,7 +49,7 @@ require('my-theme').setup({
 
 - **The `colorscheme()` function**
 
-This function can be used to set the colorscheme in your editor, however, if it doesn't work for you, you can always use `vim.cmd.colorscheme('my-theme')`.
+This function can be used to set the colorscheme in your editor, however, if it doesn't work for you, you can always use `vim.cmd.colorscheme('spacebox')`.
 
 ### Specifics for Some Plugins
 
@@ -59,7 +59,7 @@ To use the theme with [bufferline.nvim](https://github.com/akinsho/bufferline.nv
 
 ```lua
 require('bufferline').setup({
-    highlights = require('my-theme').bufferline.highlights,
+    highlights = require('spacebox').bufferline.highlights,
 })
 ```
 

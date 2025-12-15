@@ -1,39 +1,38 @@
-local bufferline = require 'my-theme.integrations.bufferline'
-local cmp = require 'my-theme.integrations.cmp'
-local colorscheme = require 'my-theme.colorscheme'
-local config = require 'my-theme.config'
-local utils = require 'my-theme.utils'
+local bufferline = require 'spacebox.integrations.bufferline'
+local cmp = require 'spacebox.integrations.cmp'
+local colorscheme = require 'spacebox.colorscheme'
+local config = require 'spacebox.config'
+local utils = require 'spacebox.utils'
 local theme = {}
 
 local function set_terminal_colors()
-  vim.g.terminal_color_0 = colorscheme.editorBackground
-  vim.g.terminal_color_1 = colorscheme.syntaxError
-  vim.g.terminal_color_2 = colorscheme.successText
-  vim.g.terminal_color_3 = colorscheme.warningEmphasis
-  vim.g.terminal_color_4 = colorscheme.syntaxFunction
-  vim.g.terminal_color_5 = colorscheme.syntaxKeyword
-  vim.g.terminal_color_6 = colorscheme.linkText
-  vim.g.terminal_color_7 = colorscheme.mainText
-  vim.g.terminal_color_8 = colorscheme.inactiveText
-  vim.g.terminal_color_9 = colorscheme.errorText
-  vim.g.terminal_color_10 = colorscheme.stringText
-  vim.g.terminal_color_11 = colorscheme.warningText
-  vim.g.terminal_color_12 = colorscheme.syntaxOperator
-  vim.g.terminal_color_13 = colorscheme.syntaxError
-  vim.g.terminal_color_14 = colorscheme.stringText
-  vim.g.terminal_color_15 = colorscheme.commentText
+  -- SpaceBox terminal colors from VS Code theme
+  vim.g.terminal_color_0 = '#000D1C'  -- ansiBlack
+  vim.g.terminal_color_1 = '#EF56FF'  -- ansiRed
+  vim.g.terminal_color_2 = '#8E76FF'  -- ansiGreen
+  vim.g.terminal_color_3 = '#735AFF'  -- ansiYellow
+  vim.g.terminal_color_4 = '#2B4FFF'  -- ansiBlue
+  vim.g.terminal_color_5 = '#2883FF'   -- ansiMagenta
+  vim.g.terminal_color_6 = '#28B9FF'  -- ansiCyan
+  vim.g.terminal_color_7 = '#F1F1F1'  -- ansiWhite
+  vim.g.terminal_color_8 = '#666666'  -- ansiBrightBlack
+  vim.g.terminal_color_9 = '#DE72FF'  -- ansiBrightRed
+  vim.g.terminal_color_10 = '#9891FF' -- ansiBrightGreen
+  vim.g.terminal_color_11 = '#A3A0FF' -- ansiBrightYellow
+  vim.g.terminal_color_12 = '#5C78FF' -- ansiBrightBlue
+  vim.g.terminal_color_13 = '#5EA2FF' -- ansiBrightMagenta
+  vim.g.terminal_color_14 = '#5AC8FF' -- ansiBrightCyan
+  vim.g.terminal_color_15 = '#FFFFFF' -- ansiBrightWhite
   vim.g.terminal_color_background = colorscheme.editorBackground
-  vim.g.terminal_color_foreground = colorscheme.mainText
+  vim.g.terminal_color_foreground = '#C9CCE6' -- terminal.foreground
 end
 
 local function set_groups()
   local bg = config.transparent and 'NONE' or colorscheme.editorBackground
-  local diff_add =
-    utils.shade(colorscheme.successText, 0.5, colorscheme.editorBackground)
-  local diff_delete =
-    utils.shade(colorscheme.syntaxError, 0.5, colorscheme.editorBackground)
-  local diff_change =
-    utils.shade(colorscheme.syntaxFunction, 0.5, colorscheme.editorBackground)
+  -- SpaceBox diff colors from VS Code theme
+  local diff_add = '#C3E88D' -- markup.inserted
+  local diff_delete = '#FF5370' -- markup.deleted
+  local diff_change = '#C792EA' -- markup.changed
   local diff_text =
     utils.shade(colorscheme.warningEmphasis, 0.5, colorscheme.editorBackground)
 
@@ -73,7 +72,7 @@ local function set_groups()
       fg = colorscheme.editorBackground,
     },
     Substitute = { link = 'IncSearch' },
-    CursorLineNr = { fg = colorscheme.commentText },
+    CursorLineNr = { fg = '#8691a1' }, -- SpaceBox active line number
     MatchParen = { fg = colorscheme.syntaxError, bg = bg },
     ModeMsg = { link = 'Normal' },
     MsgArea = { link = 'Normal' },
@@ -109,18 +108,14 @@ local function set_groups()
       bg = colorscheme.editorBackground,
       fg = colorscheme.emphasisText,
     },
-    Search = { bg = utils.shade(colorscheme.stringText, 0.40, colorscheme.bg) },
+    Search = { bg = '#5060ee8a' }, -- SpaceBox search/match highlight
     SpellBad = { undercurl = true, sp = colorscheme.syntaxError },
     SpellCap = { undercurl = true, sp = colorscheme.syntaxFunction },
     SpellLocal = { undercurl = true, sp = colorscheme.syntaxKeyword },
     SpellRare = { undercurl = true, sp = colorscheme.warningText },
     Title = { fg = colorscheme.syntaxFunction },
     Visual = {
-      bg = utils.shade(
-        colorscheme.syntaxFunction,
-        0.40,
-        colorscheme.editorBackground
-      ),
+      bg = '#0b6cb188', -- SpaceBox selection background
     },
     VisualNOS = { link = 'Visual' },
     WarningMsg = { fg = colorscheme.warningText },
@@ -131,39 +126,39 @@ local function set_groups()
       italic = config.italics.comments or false,
     },
 
-    Constant = { fg = colorscheme.syntaxError },
+    Constant = { fg = colorscheme.numberText },
     String = {
       fg = colorscheme.stringText,
       italic = config.italics.strings or false,
     },
     Character = { fg = colorscheme.stringText },
-    Number = { fg = colorscheme.foregroundEmphasis, bold = true },
-    Boolean = { fg = colorscheme.syntaxFunction },
+    Number = { fg = colorscheme.numberText },
+    Boolean = { fg = colorscheme.numberText },
     Float = { link = 'Number' },
 
-    Identifier = { fg = colorscheme.mainText },
-    Function = { fg = colorscheme.syntaxKeyword },
-    Method = { fg = colorscheme.syntaxKeyword },
+    Identifier = { fg = colorscheme.variableText },
+    Function = { fg = colorscheme.syntaxFunction },
+    Method = { fg = colorscheme.syntaxFunction },
     Property = { fg = colorscheme.syntaxFunction },
     Field = { link = 'Property' },
-    Parameter = { fg = colorscheme.mainText },
-    Statement = { fg = colorscheme.syntaxError },
-    Conditional = { fg = colorscheme.syntaxError },
+    Parameter = { fg = colorscheme.variableText },
+    Statement = { fg = colorscheme.syntaxKeyword },
+    Conditional = { fg = colorscheme.syntaxKeyword },
     -- Repeat = {},
     Label = { fg = colorscheme.syntaxFunction },
-    Operator = { fg = colorscheme.syntaxError },
-    Keyword = { link = 'Statement', italic = config.italics.keywords or false },
+    Operator = { fg = colorscheme.syntaxOperator },
+    Keyword = { fg = colorscheme.syntaxKeyword, italic = config.italics.keywords or false },
     Exception = { fg = colorscheme.syntaxError },
 
     PreProc = { link = 'Keyword' },
     -- Include = {},
     Define = { fg = colorscheme.syntaxKeyword },
     Macro = { link = 'Define' },
-    PreCondit = { fg = colorscheme.syntaxError },
+    PreCondit = { fg = colorscheme.syntaxKeyword },
 
-    Type = { fg = colorscheme.syntaxKeyword },
+    Type = { fg = colorscheme.typeText },
     Struct = { link = 'Type' },
-    Class = { link = 'Type' },
+    Class = { fg = colorscheme.classText },
 
     -- StorageClass = {},
     -- Structure = {},
@@ -227,19 +222,19 @@ local function set_groups()
     -- For more information see https://github.com/rktjmp/lush.nvim/issues/109
 
     ['@text'] = { fg = colorscheme.mainText },
-    ['@texcolorscheme.literal'] = { link = 'Property' },
-    -- ["@texcolorscheme.reference"] = {},
-    ['@texcolorscheme.strong'] = { link = 'Bold' },
-    ['@texcolorscheme.italic'] = { link = 'Italic' },
-    ['@texcolorscheme.title'] = { link = 'Keyword' },
-    ['@texcolorscheme.uri'] = {
-      fg = colorscheme.syntaxFunction,
-      sp = colorscheme.syntaxFunction,
+    ['@text.literal'] = { link = 'Property' },
+    -- ["@text.reference"] = {},
+    ['@text.strong'] = { link = 'Bold' },
+    ['@text.italic'] = { link = 'Italic' },
+    ['@text.title'] = { link = 'Keyword' },
+    ['@text.uri'] = {
+      fg = colorscheme.linkText,
+      sp = colorscheme.linkText,
       underline = true,
     },
-    ['@texcolorscheme.underline'] = { link = 'Underlined' },
+    ['@text.underline'] = { link = 'Underlined' },
     ['@symbol'] = { fg = colorscheme.syntaxOperator },
-    ['@texcolorscheme.todo'] = { link = 'Todo' },
+    ['@text.todo'] = { link = 'Todo' },
     ['@comment'] = { link = 'Comment' },
     ['@punctuation'] = { link = 'Punctuation' },
     ['@punctuation.bracket'] = { fg = colorscheme.warningEmphasis },
@@ -248,12 +243,12 @@ local function set_groups()
     ['@punctuation.special'] = { fg = colorscheme.syntaxError },
     ['@punctuation.separator.keyvalue'] = { fg = colorscheme.syntaxError },
 
-    ['@texcolorscheme.diff.add'] = { fg = colorscheme.successText },
-    ['@texcolorscheme.diff.delete'] = { fg = colorscheme.errorText },
+    ['@text.diff.add'] = { fg = colorscheme.successText },
+    ['@text.diff.delete'] = { fg = colorscheme.errorText },
 
-    ['@constant'] = { link = 'Constant' },
-    ['@constant.builtin'] = { fg = colorscheme.syntaxFunction },
-    ['@constancolorscheme.builtin'] = { link = 'Keyword' },
+    ['@constant'] = { fg = colorscheme.numberText },
+    ['@constant.builtin'] = { fg = colorscheme.numberText },
+    ['@constant.builtin'] = { fg = colorscheme.numberText },
     -- ["@constancolorscheme.macro"] = {},
     -- ["@define"] = {},
     -- ["@macro"] = {},
@@ -266,16 +261,16 @@ local function set_groups()
     ['@boolean'] = { link = 'Boolean' },
     -- ["@float"] = {},
     ['@function'] = {
-      link = 'Function',
+      fg = colorscheme.syntaxFunction,
       italic = config.italics.functions or false,
     },
-    ['@function.call'] = { link = 'Function' },
-    ['@function.builtin'] = { link = 'Function' },
+    ['@function.call'] = { fg = colorscheme.syntaxFunction },
+    ['@function.builtin'] = { fg = colorscheme.syntaxFunction },
     -- ["@function.macro"] = {},
-    ['@parameter'] = { link = 'Parameter' },
-    ['@method'] = { link = 'Function' },
-    ['@field'] = { link = 'Property' },
-    ['@property'] = { link = 'Property' },
+    ['@parameter'] = { fg = colorscheme.variableText },
+    ['@method'] = { fg = colorscheme.syntaxFunction },
+    ['@field'] = { fg = colorscheme.syntaxFunction },
+    ['@property'] = { fg = colorscheme.syntaxFunction },
     ['@constructor'] = { fg = colorscheme.syntaxFunction },
     -- ["@conditional"] = {},
     -- ["@repeat"] = {},
@@ -283,19 +278,19 @@ local function set_groups()
     ['@operator'] = { link = 'Operator' },
     ['@exception'] = { link = 'Exception' },
     ['@variable'] = {
-      fg = colorscheme.syntaxFunction,
+      fg = colorscheme.variableText,
       italic = config.italics.variables or false,
     },
-    ['@variable.builtin'] = { fg = colorscheme.syntaxFunction },
-    ['@variable.member'] = { fg = colorscheme.mainText },
+    ['@variable.builtin'] = { fg = colorscheme.syntaxError },
+    ['@variable.member'] = { fg = colorscheme.variableText },
     ['@variable.parameter'] = {
-      fg = colorscheme.mainText,
+      fg = colorscheme.variableText,
       italic = config.italics.variables or false,
     },
     ['@type'] = { link = 'Type' },
-    ['@type.definition'] = { fg = colorscheme.mainText },
-    ['@type.builtin'] = { fg = colorscheme.syntaxFunction },
-    ['@type.qualifier'] = { fg = colorscheme.syntaxFunction },
+    ['@type.definition'] = { fg = colorscheme.typeText },
+    ['@type.builtin'] = { fg = colorscheme.typeText },
+    ['@type.qualifier'] = { fg = colorscheme.syntaxKeyword },
     ['@keyword'] = { link = 'Keyword' },
     -- ["@storageclass"] = {},
     -- ["@structure"] = {},
@@ -316,26 +311,26 @@ local function set_groups()
 
     -- Specific languages
     -- overrides
-    ['@label.json'] = { fg = colorscheme.property }, -- For json
-    ['@label.help'] = { link = '@texcolorscheme.uri' }, -- For help files
-    ['@texcolorscheme.uri.html'] = { underline = true }, -- For html
+    ['@label.json'] = { fg = colorscheme.syntaxFunction }, -- For json
+    ['@label.help'] = { link = '@text.uri' }, -- For help files
+    ['@text.uri.html'] = { underline = true }, -- For html
 
     -- semantic highlighting
     ['@lsp.type.namespace'] = { link = '@namespace' },
-    ['@lsp.type.type'] = { link = '@type' },
-    ['@lsp.type.class'] = { link = '@type' },
+    ['@lsp.type.type'] = { fg = colorscheme.typeText },
+    ['@lsp.type.class'] = { fg = colorscheme.classText },
     ['@lsp.type.enum'] = { link = '@type' },
-    ['@lsp.type.enumMember'] = { fg = colorscheme.syntaxFunction },
+    ['@lsp.type.enumMember'] = { fg = colorscheme.numberText },
     ['@lsp.type.interface'] = { link = '@type' },
     ['@lsp.type.struct'] = { link = '@type' },
-    ['@lsp.type.parameter'] = { link = '@parameter' },
-    ['@lsp.type.property'] = { link = '@text' },
-    ['@lsp.type.function'] = { link = '@function' },
-    ['@lsp.type.method'] = { link = '@method' },
+    ['@lsp.type.parameter'] = { fg = colorscheme.variableText },
+    ['@lsp.type.property'] = { fg = colorscheme.syntaxFunction },
+    ['@lsp.type.function'] = { fg = colorscheme.syntaxFunction },
+    ['@lsp.type.method'] = { fg = colorscheme.syntaxFunction },
     ['@lsp.type.macro'] = { link = '@label' },
-    ['@lsp.type.decorator'] = { link = '@label' },
-    ['@lsp.typemod.function.declaration'] = { link = '@function' },
-    ['@lsp.typemod.function.readonly'] = { link = '@function' },
+    ['@lsp.type.decorator'] = { fg = colorscheme.syntaxFunction },
+    ['@lsp.typemod.function.declaration'] = { fg = colorscheme.syntaxFunction },
+    ['@lsp.typemod.function.readonly'] = { fg = colorscheme.syntaxFunction },
   }
 
   -- integrations
@@ -367,9 +362,9 @@ end
 function theme.colorscheme()
   if vim.version().minor < 8 then
     vim.notify(
-      'Neovim 0.8+ is required for my-theme colorscheme',
+      'Neovim 0.8+ is required for SpaceBox colorscheme',
       vim.log.levels.ERROR,
-      { title = 'Min Theme' }
+      { title = 'SpaceBox Theme' }
     )
     return
   end
@@ -381,7 +376,7 @@ function theme.colorscheme()
 
   vim.g.VM_theme_set_by_colorscheme = true
   vim.o.termguicolors = true
-  vim.g.colors_name = 'my-theme'
+  vim.g.colors_name = 'spacebox'
 
   set_terminal_colors()
   set_groups()
