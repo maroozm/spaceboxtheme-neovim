@@ -1,26 +1,6 @@
-<div align="center">
-
 # SpaceBox Theme for Neovim
 
-A sleek and professional dark theme for Neovim, ported from the popular [SpaceBox VS Code theme](https://github.com/amnweb/SpaceBox-Theme). Designed to minimize eye strain and maximize focus, SpaceBox offers a unique color palette that provides excellent contrast while maintaining a soothing atmosphere.
-
-<!-- <br/>
-
-![preview](./assets/sample-preview.png) 
-
-<br/>
-
-</div> -->
-
-## Features
-
-- 🎨 Carefully selected color palette for optimal contrast and readability
-- 🌈 Customized syntax highlighting for various programming languages
-- 👁️ Distraction-free editing experience with minimal UI clutter
-- 🔧 Fully customizable with transparent backgrounds and italic options
-- 🖥️ Terminal colors included
-- 🌲 Tree-sitter support for enhanced syntax highlighting
-- 🔌 Plugin integrations (bufferline, cmp, lualine)
+A sleek and professional dark theme for Neovim, ported from the popular [SpaceBox VS Code theme](https://github.com/amnweb/SpaceBox-Theme).
 
 ## Installation
 
@@ -50,25 +30,6 @@ use {
         require('spacebox').colorscheme()
     end,
 }
-```
-
-## Configuration
-
-To configure the plugin, call `require('spacebox').setup({})` with your desired options:
-
-```lua
-require('spacebox').setup({
-    transparent = false, -- Boolean: Sets the background to transparent
-    italics = {
-        comments = true, -- Boolean: Italicizes comments
-        keywords = true, -- Boolean: Italicizes keywords
-        functions = true, -- Boolean: Italicizes functions
-        strings = true, -- Boolean: Italicizes strings
-        variables = true, -- Boolean: Italicizes variables
-        bufferline = false, -- Boolean: Italicizes bufferline text
-    },
-    overrides = {}, -- A dictionary of group names, can be a function returning a dictionary or a table.
-})
 ```
 
 ### Setting the Colorscheme
@@ -112,3 +73,11 @@ Contributions are welcome! Please open an issue if you encounter any bugs or hav
 ## License
 
 [MIT License](LICENSE) 
+
+<br/>
+
+![preview](./assets/sample-preview.png) 
+
+<br/>
+
+</div>
