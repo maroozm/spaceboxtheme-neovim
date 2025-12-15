@@ -4,13 +4,13 @@
 
 A sleek and professional dark theme for Neovim, ported from the popular [SpaceBox VS Code theme](https://github.com/amnweb/SpaceBox-Theme). Designed to minimize eye strain and maximize focus, SpaceBox offers a unique color palette that provides excellent contrast while maintaining a soothing atmosphere.
 
-<br/>
+<!-- <br/>
 
 ![preview](./assets/sample-preview.png) 
 
 <br/>
 
-</div>
+</div> -->
 
 ## Features
 
