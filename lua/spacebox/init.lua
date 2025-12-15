@@ -108,14 +108,14 @@ local function set_groups()
       bg = colorscheme.editorBackground,
       fg = colorscheme.emphasisText,
     },
-    Search = { bg = '#5060ee8a' }, -- SpaceBox search/match highlight
+    Search = { bg = utils.mix('#5060ee', colorscheme.editorBackground, 0.54) }, -- SpaceBox search/match highlight
     SpellBad = { undercurl = true, sp = colorscheme.syntaxError },
     SpellCap = { undercurl = true, sp = colorscheme.syntaxFunction },
     SpellLocal = { undercurl = true, sp = colorscheme.syntaxKeyword },
     SpellRare = { undercurl = true, sp = colorscheme.warningText },
     Title = { fg = colorscheme.syntaxFunction },
     Visual = {
-      bg = '#0b6cb188', -- SpaceBox selection background
+      bg = utils.mix('#0b6cb1', colorscheme.editorBackground, 0.53), -- SpaceBox selection background
     },
     VisualNOS = { link = 'Visual' },
     WarningMsg = { fg = colorscheme.warningText },

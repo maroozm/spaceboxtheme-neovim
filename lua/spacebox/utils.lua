@@ -32,19 +32,11 @@ function M.mix(fg, bg, alpha)
 end
 
 function M.shade(color, value, base)
-  if vim.o.background == 'light' then
-    if base == nil then
-      base = '#000000'
-    end
-
-    return M.mix(color, base, math.abs(value))
-  else
-    if base == nil then
-      base = '#ffffff'
-    end
-
-    return M.mix(color, base, math.abs(value))
+  if base == nil then
+    base = '#ffffff'
   end
+
+  return M.mix(color, base, math.abs(value))
 end
 
 return M

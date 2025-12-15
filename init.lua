@@ -331,7 +331,6 @@ require('lazy').setup {
 local theme = require 'spacebox/init'
 
 theme.setup {
-  theme = 'dark',
   transparent = true,
   italics = {
     comments = false,
