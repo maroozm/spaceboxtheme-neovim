@@ -5,7 +5,7 @@ local theme = {}
 local bg = config.transparent and 'NONE' or colorscheme.editorBackground
 
 theme.normal = {
-  a = { bg = colorscheme.syntaxKeyword, fg = colorscheme.editorBackground, gui = 'bold' },
+  a = { bg = '#9553ff', fg = colorscheme.editorBackground, gui = 'bold' }, -- Nova purple accent
   b = { bg = bg, fg = colorscheme.commentText },
   c = { bg = bg, fg = colorscheme.editorBackground },
 }

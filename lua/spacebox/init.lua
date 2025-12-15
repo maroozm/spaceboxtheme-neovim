@@ -72,7 +72,7 @@ local function set_groups()
       fg = colorscheme.editorBackground,
     },
     Substitute = { link = 'IncSearch' },
-    CursorLineNr = { fg = '#8691a1' }, -- SpaceBox active line number
+    CursorLineNr = { fg = '#8691a1' }, -- SpaceBox Nova active line number
     MatchParen = { fg = colorscheme.syntaxError, bg = bg },
     ModeMsg = { link = 'Normal' },
     MsgArea = { link = 'Normal' },
@@ -94,7 +94,7 @@ local function set_groups()
     Question = { fg = colorscheme.syntaxFunction },
     QuickFixLine = { fg = colorscheme.syntaxFunction },
     SpecialKey = { fg = colorscheme.syntaxOperator },
-    StatusLine = { fg = colorscheme.mainText, bg = bg },
+    StatusLine = { fg = colorscheme.mainText, bg = '#242c3a' }, -- Nova status bar background
     StatusLineNC = {
       fg = colorscheme.inactiveText,
       bg = colorscheme.sidebarBackground,
@@ -108,14 +108,14 @@ local function set_groups()
       bg = colorscheme.editorBackground,
       fg = colorscheme.emphasisText,
     },
-    Search = { bg = utils.mix('#5060ee', colorscheme.editorBackground, 0.54) }, -- SpaceBox search/match highlight
+    Search = { bg = utils.mix('#af92e7', colorscheme.editorBackground, 0.20) }, -- SpaceBox Nova search/match highlight
     SpellBad = { undercurl = true, sp = colorscheme.syntaxError },
     SpellCap = { undercurl = true, sp = colorscheme.syntaxFunction },
     SpellLocal = { undercurl = true, sp = colorscheme.syntaxKeyword },
     SpellRare = { undercurl = true, sp = colorscheme.warningText },
     Title = { fg = colorscheme.syntaxFunction },
     Visual = {
-      bg = utils.mix('#0b6cb1', colorscheme.editorBackground, 0.53), -- SpaceBox selection background
+      bg = utils.mix('#af92e7', colorscheme.editorBackground, 0.20), -- SpaceBox Nova selection background
     },
     VisualNOS = { link = 'Visual' },
     WarningMsg = { fg = colorscheme.warningText },
@@ -287,6 +287,7 @@ local function set_groups()
       fg = colorscheme.variableText,
       italic = config.italics.variables or false,
     },
+    ['@variable.other'] = { fg = colorscheme.blockVariableText }, -- Block level variables
     ['@type'] = { link = 'Type' },
     ['@type.definition'] = { fg = colorscheme.typeText },
     ['@type.builtin'] = { fg = colorscheme.typeText },
