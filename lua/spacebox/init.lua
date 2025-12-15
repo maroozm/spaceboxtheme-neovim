@@ -94,7 +94,7 @@ local function set_groups()
     Question = { fg = colorscheme.syntaxFunction },
     QuickFixLine = { fg = colorscheme.syntaxFunction },
     SpecialKey = { fg = colorscheme.syntaxOperator },
-    StatusLine = { fg = colorscheme.mainText, bg = '#242c3a' }, -- Nova status bar background
+    StatusLine = { fg = colorscheme.mainText, bg = config.transparent and 'NONE' or '#242c3a' }, -- Nova status bar background
     StatusLineNC = {
       fg = colorscheme.inactiveText,
       bg = colorscheme.sidebarBackground,
