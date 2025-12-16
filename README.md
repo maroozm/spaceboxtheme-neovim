@@ -8,7 +8,7 @@ A sleek and professional dark theme for Neovim, ported from the popular [SpaceBo
 
 ```lua
 {
-    'your-username/spacebox-nvim',
+    'marooz/spacebox-nvim',
     lazy = false,
     priority = 1000,
     config = function()
@@ -24,7 +24,7 @@ A sleek and professional dark theme for Neovim, ported from the popular [SpaceBo
 
 ```lua
 use {
-    'your-username/spacebox-nvim',
+    'marooz/spacebox-nvim',
     config = function()
         require('spacebox').setup({})
         require('spacebox').colorscheme()
